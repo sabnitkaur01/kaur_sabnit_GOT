@@ -12,6 +12,6 @@ content videos
 Youtube tutorials
 
 
-##Author
+## Author:
 ### ```Sabnit kaur```
 
