@@ -30,24 +30,16 @@ const houseData = [
 // functions of lightbox
 function showLightBox()
 {
-  
   houseName = this.className.split(" ")[1];
   newSource = houseName.charAt(0).toUpperCase() + houseName.slice(1);
   arrayData = this.dataset.offset;
-
-
-
-  // video
+ // video
   targetSource = `videos/House-${houseName}.mp4`;
 }
-
-
 
 function hideLightBox() {
 
   lightbox.classList.remove("show-lightbox");
-  // video.pause();
-  // video.currentTime = 0;
 }
 
 
@@ -58,10 +50,9 @@ function animateBanners()
   let offsetWidth = 600;
   let multiplier = this.dataset.offset;
   let newPosition = offsetWidth * multiplier;
-
-
   imageCon.style.right = `${newPosition}px`;
 }
+
 
 
 // change the text
@@ -71,17 +62,17 @@ function changeText()
   console.log(currentHouseName.textContent);
   houseInfo.textContent = `${houseData[arrayData][1]}`;
 
-// NOTE: code stops working if we change the format so be careful with format too.
-
   setTimeout(function()
   {
     lightbox.classList.add("show-lightbox");
     video.src = targetSource;
-    video.load();
-    video.play();
   }, 
 600);
 }
+
+
+
+// NOTE: code stops working if we change the format so be careful with format too.
 
 
 
@@ -105,7 +96,7 @@ function changeText()
 function videoControls(){
    let pause = false;
 
-   // debugger
+   // debugger;
 
    if(this.dataset.button == 0)
    {
@@ -132,5 +123,13 @@ closeButton.addEventListener("click", hideLightBox);
 
 customButtons.forEach(button => button.addEventListener("click", videoControls));
 // for video controls
+
+
+
+
+// video did'nt worked, have to see the problem in video load and play "MAYBE"
+
+
+
 
 })();
