@@ -98,10 +98,11 @@ h1 {
 
 
 .lightbox {
-  position: absolute;
-  top: 0;
   width: 100vw;
+  position: absolute;
+  
   height: 100vh;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.85);
   display: none;
 }
@@ -114,10 +115,10 @@ h1 {
 
 
 .house-info {
-  width: 70%;
-  font-size: 1em;
   line-height: 2;
   color: white;
+  width: 70%;
+  font-size: 1em;
   margin: 2em auto 0;
 }
 
@@ -127,17 +128,20 @@ h1 {
 
 .close{
 
+  float: right;
   color: white;
   cursor: pointer;
+  padding: 10px;
   font-size: 2em;
   font-family: arial;
-  float: right;
-  padding: 10px;
   margin-right: 320px;
   margin-top: 100px;
 
 
+
 }
+
+
 
 .close:hover {
   background-color: #FFC559;
@@ -147,10 +151,11 @@ h1 {
 
 video {
 
+  margin-left: 25%;
+
   width: 50%;
   margin-top: 10%;
   border: solid #FFC559;
-  margin-left: 25%;
 }
 
 
@@ -179,10 +184,10 @@ video {
 
 .videoControls img:hover {
   border: 54px;
-  cursor: pointer;
-  margin-right: 10px;
   margin-left: 4px;
+  cursor: pointer;
   background-color: #FFC559;
+  margin-right: 10px;
 
 }
 
