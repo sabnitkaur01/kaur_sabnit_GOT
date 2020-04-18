@@ -5,10 +5,9 @@ let sigilButtons = document.querySelectorAll(".sigilContainer"),
     lightbox = document.querySelector(".lightbox"),
     closeButton = lightbox.querySelector(".close"),
     currentHouseName = document.querySelector("h1"),
-    video = lightbox.querySelector(".playVideo"),
+    // video = lightbox.querySelector(".startVideo"),
     imageCon = document.querySelector("#houseImages"),
     houseInfo = document.querySelector(".house-info"),
-    // con = document.querySelector(".transition"),
     customButtons = document.querySelectorAll(".videoControls img");
 
 const houseData = [
@@ -27,6 +26,8 @@ const houseData = [
 
   ];
 
+
+// functions of lightbox
 function showLightBox()
 {
   
@@ -36,6 +37,7 @@ function showLightBox()
 
 
 
+  // video
   targetSource = `videos/House-${houseName}.mp4`;
 }
 
@@ -49,11 +51,11 @@ function hideLightBox() {
 }
 
 
-
+// animate the banner
 function animateBanners()
 {
 
-  let offsetWidth = 601;
+  let offsetWidth = 600;
   let multiplier = this.dataset.offset;
   let newPosition = offsetWidth * multiplier;
 
@@ -61,32 +63,74 @@ function animateBanners()
   imageCon.style.right = `${newPosition}px`;
 }
 
+
+// change the text
 function changeText()
 {
   currentHouseName.textContent = `House ${houseData[arrayData][0]}`;
   console.log(currentHouseName.textContent);
   houseInfo.textContent = `${houseData[arrayData][1]}`;
 
-
+// NOTE: code stops working if we change the format so be careful with format too.
 
   setTimeout(function()
   {
     lightbox.classList.add("show-lightbox");
-
-    // video.src = targetSource;
-    // video.load();
-    // video.play();
+    video.src = targetSource;
+    video.load();
+    video.play();
   }, 
-
-  1000);
+600);
 }
 
-imageCon.addEventListener("transitionend", changeText);
+
+
+
+// function videoControls()
+// {
+//   let pause = false;
+//   if(this.dataset.button == 0)
+//   {
+//     video.currentTime = 0;
+//     video.play();
+//   }
+//   else {
+//     video.pause();
+//   }
+// }
+
+
+// video content controls
+
+function videoControls(){
+   let pause = false;
+
+   // debugger
+
+   if(this.dataset.button == 0)
+   {
+    video.currentTime = 0;
+    video.play();
+
+
+   }
+
+   else {
+    video.pause();
+   }
+}
+
+imageCon.addEventListener("transitionend", changeText); 
+// to change the picture
+
 sigilButtons.forEach(button => button.addEventListener("click", showLightBox));
+// it shows the lightbox system
 
 sigilButtons.forEach(button => button.addEventListener("click", animateBanners));
 closeButton.addEventListener("click", hideLightBox);
+// aniamte the banner and hide lightbox
 
 customButtons.forEach(button => button.addEventListener("click", videoControls));
+// for video controls
 
 })();
